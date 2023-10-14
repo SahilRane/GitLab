@@ -47,6 +47,7 @@ What branches would change, and how?
 git checkout test
 git merge top_N
 ```
+We first check out the test branch and then perform the merge on this branch. This resulted in a fast-forward merge essentially making the test branch and the top_N branch identical. The test branch changed and the process_movie_data.py file got changed to reflect the changes made in the branch top_N. The top_N branch stayed the same.
 
 6. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -54,6 +55,7 @@ What branches would change, and how?
 git checkout top_ten
 git merge test
 ```
+We first check out the top_ten branch and then perform the merge of test on this branch. This resulted in a 3-way merge causing the creation of a new commit called a merge commit. The top_ten branch changed with the quiz.md file being renamed to answers.md in the top_ten branch. The process_movie_data.py file is unchanged. The top_10 branch changed and the test branch remained unchanged.
 
 7. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -62,3 +64,4 @@ git checkout test
 git rebase top_ten
 git rebase top_N
 ```
+We first checkout the test branch. We then run the first rebase in which the test branch is rebased onto the top_ten branch. It rearranges the commit tree such that there is a new commit after the rebase command is run. Since the test branch was rebased onto top_ten it now includes all the commits from top_ten and the new rebase commit. The second rebase resulted in a merge conflict, which was resolved manually based on the instructions in the assignment. The test branch has been rebased onto top_N branch, which means it now contains the commits from top_N. After the conflict was resolved a new commit was created. Thus, after both the rebases the test branch process_movie_data.py has all the changes from top_N, with the default parameter modified to 10.
